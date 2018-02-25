@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(require('./config/auth'));
 
 // API routes
-// app.use('/api/users', require('./routes/api/users'));
+app.use('/api/users', require('./routes/api/users'));
 // TODO add other api routes below here
 
 // catch-all for client-side routing
