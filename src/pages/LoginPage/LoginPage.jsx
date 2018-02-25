@@ -5,7 +5,10 @@ import './LoginPage.css';
 const LoginPage = (props) => {
     return (
         <div className='LoginPage'>
-            <LoginForm />
+            <LoginForm 
+                histoyr={props.history}
+                handleLogin={props.handleLogin}
+            />
         </div>
     )
 }

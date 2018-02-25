@@ -8,6 +8,7 @@ import './App.css';
 import userService from './utils/userService';
 import NavBar from './components/NavBar/NavBar';
 import SignupPage from './pages/SignupPage/SignupPage';
+import LoginPage from './pages/LoginPage/LoginPage';
 
 class App extends Component {
   constructor(props) {
@@ -48,6 +49,13 @@ class App extends Component {
             <SignupPage 
               {...props}
               handleSignup={this.handleSignup}
+            />
+          }/>
+
+          <Route exact path='/login' render={(props) =>
+            <LoginPage
+              {...props}
+              handleLogin={this.handleLogin}
             />
           }/>
         </Switch>
