@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
   Switch,
-  Redirect,
   Route
 } from 'react-router-dom';
 import './App.css';
@@ -9,6 +8,7 @@ import userService from './utils/userService';
 import NavBar from './components/NavBar/NavBar';
 import SignupPage from './pages/SignupPage/SignupPage';
 import LoginPage from './pages/LoginPage/LoginPage';
+import SearchPage from './pages/SearchPage/SearchPage';
 
 class App extends Component {
   constructor(props) {
@@ -44,6 +44,7 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar />
+        <h1>Food Mood</h1>
         <Switch>
           <Route exact path='/signup' render={(props) => 
             <SignupPage 
@@ -58,9 +59,14 @@ class App extends Component {
               handleLogin={this.handleLogin}
             />
           }/>
+
+          <Route exact path='/search' render={(props) =>
+            <SearchPage 
+              {...props}
+              /> 
+            }/>
         </Switch>
 
-        <h1>Food Mood</h1>
       </div>
     );
   }
