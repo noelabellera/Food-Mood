@@ -6,7 +6,7 @@ const LoginPage = (props) => {
     return (
         <div className='LoginPage'>
             <LoginForm 
-                histoyr={props.history}
+                history={props.history}
                 handleLogin={props.handleLogin}
             />
         </div>

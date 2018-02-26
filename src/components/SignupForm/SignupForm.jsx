@@ -27,7 +27,6 @@ class SignupForm extends Component {
           // successfully signed up - show GamePage
           .then(() => {
             this.props.handleSignup();
-            // TODO change the history.push below after signing up
             this.props.history.push('/search');
           })
           // invalid user data

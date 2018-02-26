@@ -31,6 +31,11 @@ class App extends Component {
   handleLogin = () => {
     this.setState({user: userService.getUser()});
   }
+
+  handleLogout = () => {
+    userService.logout()
+    this.setState({user: null});
+  }
   /*--- Lifecycle Methods ---*/
 
   componentDidMount() {
@@ -43,7 +48,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar />
+        <NavBar handleLogout={this.handleLogout} />
         <h1>Food Mood</h1>
         <Switch>
           <Route exact path='/signup' render={(props) => 
