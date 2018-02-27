@@ -20,7 +20,7 @@ class SearchForm extends Component {
             <div>
                 <form>
                     <input type="zipcode" placeholder="Zip Code" />
-                    <button onClick={this.handleSearch}>Check Out Your Food Mood</button>
+                    <button onClick={this.handleSearch}>SEARCH</button>
                 </form>
             </div>
         )

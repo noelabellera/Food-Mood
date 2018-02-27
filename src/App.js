@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {
   Switch,
-  Route
+  Route,
+  Redirect
 } from 'react-router-dom';
 import './App.css';
 import userService from './utils/userService';
@@ -10,6 +11,8 @@ import SignupPage from './pages/SignupPage/SignupPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import SearchPage from './pages/SearchPage/SearchPage';
 import ResultsPage from './pages/ResultsPage/ResultsPage';
+import EightBallPage from './pages/EightballPage/EightballPage';
+
 
 
 class App extends Component {
@@ -67,17 +70,32 @@ class App extends Component {
             />
           }/>
 
-          <Route exact path='/search' render={(props) =>
-            <SearchPage 
-              {...props}
-            /> 
-          }/>
+          <Route exact path='/search' render={(props) => (
+            userService.getUser() ?
+              <SearchPage 
+                {...props}
+              /> 
+              :
+              <Redirect to='/' />
+          )}/>
 
-          <Route exact path='/results' render={(props) => 
-            <ResultsPage 
-              {...props} 
+          <Route exact path='/results' render={(props) => (
+            userService.getUser() ?
+              <ResultsPage 
+                {...props} 
+              />
+              :
+              <Redirect to='/' />
+          )}/>
+
+          <Route exact path='/eightball' render={(props) => (
+            userService.getUser() ?
+            <EightBallPage
+              {...props}
             />
-          }/>
+            :
+            <Redirect to='/' />
+          )}/>
         </Switch>
 
       </div>

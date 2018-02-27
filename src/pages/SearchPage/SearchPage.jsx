@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchForm from '../../components/SearchForm/SearchForm';
+import API from '../../api/api';
 import './SearchPage.css';
 
 
@@ -7,7 +8,7 @@ class SearchPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            zipCode: 0
+            zipCode: 90041
         }
     }
 
@@ -18,7 +19,7 @@ class SearchPage extends Component {
     render() {
         return(
             <div>
-                <h3>This is the search up page</h3>
+                <h3>ENTER ZIP TO SEE WHERE YOU SHOULD EAT!</h3>
                 <SearchForm />
             </div>
         )
