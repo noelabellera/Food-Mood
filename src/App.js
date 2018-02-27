@@ -9,6 +9,8 @@ import NavBar from './components/NavBar/NavBar';
 import SignupPage from './pages/SignupPage/SignupPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import SearchPage from './pages/SearchPage/SearchPage';
+import ResultsPage from './pages/ResultsPage/ResultsPage';
+
 
 class App extends Component {
   constructor(props) {
@@ -48,7 +50,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar handleLogout={this.handleLogout} />
+        <NavBar handleLogout={this.handleLogout} user={this.state.user}/>
         <h1>Food Mood</h1>
         <Switch>
           <Route exact path='/signup' render={(props) => 
@@ -68,8 +70,14 @@ class App extends Component {
           <Route exact path='/search' render={(props) =>
             <SearchPage 
               {...props}
-              /> 
-            }/>
+            /> 
+          }/>
+
+          <Route exact path='/results' render={(props) => 
+            <ResultsPage 
+              {...props} 
+            />
+          }/>
         </Switch>
 
       </div>
