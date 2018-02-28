@@ -5,6 +5,7 @@ const ResultsPage = (props) => {
     return (
         <div className='ResultsPage'>
             <WeatherDisplay />
+            <span>{props.temp}</span>
         </div>
     )
 }

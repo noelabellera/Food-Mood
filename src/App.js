@@ -12,45 +12,60 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import SearchPage from './pages/SearchPage/SearchPage';
 import ResultsPage from './pages/ResultsPage/ResultsPage';
 import EightBallPage from './pages/EightballPage/EightballPage';
+import API from './api';
 
 
 
 class App extends Component {
   constructor(props) {
     super(props);
-      this.state = {
-        zip: ''
-      }
+    this.state = {
+      zip: ''
+    }
   }
-  
+
 
   /*--- Helper Methods ---*/
 
- updateZipcode = (e) => {
-     this.setState({
-         zip: e.target.value
-     })
- }
+  updateZipcode = (e) => {
+    this.setState({
+      zip: e.target.value
+    })
+  }
   /*--- Callback Methods ---*/
 
 
   handleSignup = () => {
-    this.setState({user: userService.getUser()});
+    this.setState({ user: userService.getUser() });
   }
 
   handleLogin = () => {
-    this.setState({user: userService.getUser()});
+    this.setState({ user: userService.getUser() });
   }
 
   handleLogout = () => {
     userService.logout()
-    this.setState({user: null});
+    this.setState({ user: null });
   }
+
+  handleSearchBTN = (e) => {
+    e.preventDefault();
+    API.fetchWeather(this.state.zip)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        this.setState({ temp: data.main.temp })
+      })
+      .catch((err) => {
+        console.log(err)
+      });
+  }
+
   /*--- Lifecycle Methods ---*/
 
   componentDidMount() {
     let user = userService.getUser();
-    this.setState({user});
+    this.setState({ user });
   }
 
 
@@ -58,53 +73,54 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar handleLogout={this.handleLogout} user={this.state.user}/>
+        <NavBar handleLogout={this.handleLogout} user={this.state.user} />
         <h1>Food Mood</h1>
         <Switch>
-          <Route exact path='/signup' render={(props) => 
-            <SignupPage 
+          <Route exact path='/signup' render={(props) =>
+            <SignupPage
               {...props}
               handleSignup={this.handleSignup}
             />
-          }/>
+          } />
 
           <Route exact path='/login' render={(props) =>
             <LoginPage
               {...props}
               handleLogin={this.handleLogin}
             />
-          }/>
+          } />
 
           <Route exact path='/search' render={(props) => (
             userService.getUser() ?
-              <SearchPage 
+              <SearchPage
                 {...props}
                 zip={this.state.zip}
                 handleSearchBTN={this.handleSearchBTN}
                 updateZipcode={this.updateZipcode}
-              /> 
+              />
               :
               <Redirect to='/' />
-          )}/>
+          )} />
 
           <Route exact path='/results' render={(props) => (
             userService.getUser() ?
-              <ResultsPage 
-                {...props} 
+              <ResultsPage
+                {...props}
+                temp={this.state.temp}
                 zip={this.state.zip}
               />
               :
               <Redirect to='/' />
-          )}/>
+          )} />
 
           <Route exact path='/eightball' render={(props) => (
             userService.getUser() ?
-            <EightBallPage
-              {...props}
-            />
-            :
-            <Redirect to='/' />
-          )}/>
+              <EightBallPage
+                {...props}
+              />
+              :
+              <Redirect to='/' />
+          )} />
         </Switch>
 
       </div>
