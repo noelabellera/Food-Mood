@@ -5,7 +5,9 @@ import './WeatherDisplay.css';
 const WeatherDisplay = (props) => {
     return(
         <div className="WeatherDisplay">
-            <h3>This is where the weather is displayed</h3>
+            <h3>{props.city}</h3>
+            <h3>Current Temp</h3>
+            <h2>{props.temp} F</h2>
         </div>
     )
 }

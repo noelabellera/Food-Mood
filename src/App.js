@@ -54,7 +54,10 @@ class App extends Component {
       .then(response => response.json())
       .then(data => {
         console.log(data)
-        this.setState({ temp: data.main.temp })
+        this.setState({ 
+          temp: data.main.temp,
+          city: data.name
+         })
       })
       .catch((err) => {
         console.log(err)
@@ -107,6 +110,7 @@ class App extends Component {
               <ResultsPage
                 {...props}
                 temp={this.state.temp}
+                city={this.state.city}
                 zip={this.state.zip}
               />
               :
