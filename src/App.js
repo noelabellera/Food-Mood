@@ -56,7 +56,8 @@ class App extends Component {
         console.log(data)
         this.setState({ 
           temp: data.main.temp,
-          city: data.name
+          city: data.name,
+          description: data.weather[0].description
          })
       })
       .catch((err) => {
@@ -112,6 +113,7 @@ class App extends Component {
                 temp={this.state.temp}
                 city={this.state.city}
                 zip={this.state.zip}
+                description={this.state.description}
               />
               :
               <Redirect to='/' />

@@ -8,6 +8,7 @@ const WeatherDisplay = (props) => {
             <h3>{props.city}</h3>
             <h3>Current Temp</h3>
             <h2>{props.temp} F</h2>
+            <h3 className="Description">{props.description}</h3>
         </div>
     )
 }
