@@ -1,29 +1,15 @@
 import React, { Component } from 'react';
 import SearchForm from '../../components/SearchForm/SearchForm';
-// import API from '../../api/api';
+import API from '../../api/api';
 import './SearchPage.css';
 
 // const key = process.env.OWM_KEY;
 class SearchPage extends Component {
 
-
-
     handleSearchBTN = (e)  => {
         e.preventDefault();
+        API.fetchWeather(this.props.zip);
         this.props.history.push('/results')
-    }
-
-    componentDidMount() {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${this.props.zip},us&appid=3f8e3f8dbe2c80f35b11701848af707c&units=imperial`, {
-            method: 'GET'
-        })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch((err) => {
-            console.log(err)
-        })
-        // alert(`the zip is now ${this.zip}`);
-
     }
 
     render() {

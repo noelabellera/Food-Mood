@@ -6,7 +6,7 @@ const SearchForm = (props) => {
     return (
         <div>
             <form>
-                <input type="zipcode" 
+                <input type="number" 
                        placeholder="Zip Code" 
                        onChange={props.updateZipcode}
                        value={props.zip} />
