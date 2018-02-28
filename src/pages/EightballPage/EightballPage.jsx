@@ -8,7 +8,7 @@ class EightBallPage extends Component {
     constructor() {
         super();
         this.state = {
-            answer: "What Do You Seek?",
+            answer: "MY ANSWER TO YOU IS...",
             answers
         }
     }

@@ -12,7 +12,7 @@ const NavBar = (props) => {
         &nbsp;&nbsp;|&nbsp;&nbsp;
         <Link to ='/search'>SEARCH</Link>
         &nbsp;&nbsp;|&nbsp;&nbsp;
-        <Link to ='/eightball'>ASK THE 8-BALL</Link>
+        <Link to ='/eightball'>ASK THE MAGIC 8-BALL</Link>
         &nbsp;&nbsp;|&nbsp;&nbsp;
         <Link to='/' onClick={props.handleLogout} >LOG OUT</Link>
     </div>

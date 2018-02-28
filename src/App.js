@@ -19,13 +19,18 @@ class App extends Component {
   constructor(props) {
     super(props);
       this.state = {
-        value: "TODO Here"
+        zip: 90041
       }
   }
   
 
   /*--- Helper Methods ---*/
 
+ updateZipcode = (e) => {
+     this.setState({
+         zip: e.target.value
+     })
+ }
   /*--- Callback Methods ---*/
 
 
@@ -74,6 +79,9 @@ class App extends Component {
             userService.getUser() ?
               <SearchPage 
                 {...props}
+                zip={this.state.zip}
+                handleSearchBTN={this.handleSearchBTN}
+                updateZipcode={this.updateZipcode}
               /> 
               :
               <Redirect to='/' />
@@ -83,6 +91,7 @@ class App extends Component {
             userService.getUser() ?
               <ResultsPage 
                 {...props} 
+                zip={this.state.zip}
               />
               :
               <Redirect to='/' />
