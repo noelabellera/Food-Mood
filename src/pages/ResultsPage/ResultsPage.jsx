@@ -4,14 +4,26 @@ import RestaurantDisplay from '../../components/RestaurantDisplay/RestaurantDisp
 import './ResultsPage.css';
 
 const ResultsPage = (props) => {
-    return (
+
+    let results = props.temp === undefined ?
+        <div>
+            <h1>You've entered an invalid Zip Code</h1>
+        </div>
+    
+        :
+
         <div className='ResultsPage'>
             <WeatherDisplay temp={props.temp} 
                             city={props.city} 
                             description={props.description}
             />
+            <RestaurantDisplay temp={props.temp}/>
+        </div>
 
-            <RestaurantDisplay />
+    
+    return (
+        <div className='ResultsPage'>
+            {results}
         </div>
     )
 }
