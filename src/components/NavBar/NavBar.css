@@ -1,0 +1,20 @@
+.NavBar {
+    background-color: tomato;
+    color: white;
+    height: 55px;
+    width: 1500px;
+    font-size: 20px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.Link {
+    color: white;
+}
+
+.Link:visited {
+    color: white;
+}

@@ -6,8 +6,8 @@ var usersCtrl = require('../../controllers/users');
 
 /*------ Public Routes -----*/
 
+router.get('/', usersCtrl.yelpAPI);
 router.post('/signup', usersCtrl.signup);
 router.post('/login', usersCtrl.login);
-router.get('/', usersCtrl.yelper);
 
 module.exports = router;

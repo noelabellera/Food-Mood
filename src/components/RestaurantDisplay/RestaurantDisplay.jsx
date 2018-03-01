@@ -4,17 +4,18 @@ import React from 'react';
 
 const RestaurantDisplay = (props) => {
     let msg = '';
-    if(props.temp < 65) {
-        msg = "Good day to stay in today and get cozy in front of the tv"
+    if(props.temp <= 65) {
+        msg = "SUGGESTED FOODS FOR A COLD DAY LIKE THIS: SOUPS, SOUL FOOD, COMFORT FOOD"
     } else if(props.temp > 65 && props.temp < 80) {
-        msg = "Looks nice and warm. You should go out for a walk or a run."
+        msg = "SUGGESTED FOODS FOR A NICE DAY LIKE THIS: SANDWICHES, BURGERS, PASTA, BBQ"
+    } else if(props.temp >= 80) {
+        msg = "SUGGESTED FOODS FOR A HOT DAY LIKE THIS: SALADS, SUSHI, ICE CREAM, SMOOTHIES"
     }
 
 
     return (
         <div>
-            <h2>This is the restaurant display</h2>
-            <p>{msg}</p>
+            <h3>{msg}</h3>
         </div>
     );
 };

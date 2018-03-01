@@ -61,7 +61,7 @@ class App extends Component {
             city: ''
           })
         } else { 
-          this.setState({ 
+          this.setState({
             temp: data.main.temp,
             city: data.name,
             description: data.weather[0].description,
@@ -72,15 +72,19 @@ class App extends Component {
       .catch((err) => {
         console.log(err)
       });
+      
+
+      
+
   }
 
   /*--- Lifecycle Methods ---*/
 
   componentDidMount() {
-    console.log("MOUNT")
     let user = userService.getUser();
     this.setState({ user });
     fetch('/').then(data => console.log(data))
+    
   }
 
 
@@ -89,7 +93,7 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar handleLogout={this.handleLogout} user={this.state.user} />
-        <h1>Food Mood</h1>
+        <h1 className="Title">Food Mood</h1><br/>
         <Switch>
           <Route exact path='/signup' render={(props) =>
             <SignupPage

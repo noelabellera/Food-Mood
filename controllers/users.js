@@ -1,9 +1,10 @@
 var User = require('../models/User');
 var jwt = require('jsonwebtoken');
 var SECRET = process.env.SECRET;
+var YELP_KEY = process.env.YELP_KEY;
 const yelp = require('yelp-fusion');
  
-const client = yelp.client('AK0zf7qn2PotWnZo4MP_jx1Mm87NHA-jxbogGPg9EShOMXzRo6fJ19QJA0DBiJldCpWWk_pQoGBgB4R4rAb7ABhSRoYi0Qokewt4rwT0W_gIrjQvEcP8Jvb_0vCWWnYx');
+const client = yelp.client(YELP_KEY);
 
 function signup(req, res) {
     var user = new User(req.body);
@@ -15,6 +16,7 @@ function signup(req, res) {
 }
 
 function login(req, res) {
+    console.log("logging in")
     User.findOne({email: req.body.email}).exec().then(user => {
         if(!user) return res.status(401).json({err: 'bad credentials'});
         user.comparePassword(req.body.pw, (err, isMatch) => {
@@ -36,14 +38,13 @@ function createJWT(user) {
     );
 }
 
-function yelper() {
+function yelpAPI() {
     console.log("Hello Yelper")
     client.search({
         term:'Four Barrel Coffee',
         location: 'san francisco, ca'
       }).then(response => {
-          console.log('sdfjdsfk')
-        console.log(response.jsonBody.businesses[0].name);
+        console.log(response.jsonBody.businesses[0]);
       }).catch(e => {
         console.log(e);
       });
@@ -52,5 +53,5 @@ function yelper() {
 module.exports = {
     signup,
     login,
-    yelper
+    yelpAPI
 }

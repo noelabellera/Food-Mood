@@ -1,0 +1,15 @@
+.form-control {
+    width: 325px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}

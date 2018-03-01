@@ -8,25 +8,25 @@ const NavBar = (props) => {
     <div>
         <span>Hello, {props.user.name}</span>
         &nbsp;&nbsp;|&nbsp;&nbsp;
-        <Link to ='/about'>ABOUT</Link>
+        <Link to ='/about' className="Link">ABOUT</Link>
         &nbsp;&nbsp;|&nbsp;&nbsp;
-        <Link to ='/search'>SEARCH</Link>
+        <Link to ='/search' className="Link">SEARCH</Link>
         &nbsp;&nbsp;|&nbsp;&nbsp;
-        <Link to ='/eightball'>ASK THE MAGIC 8-BALL</Link>
+        <Link to ='/eightball' className="Link"> ASK THE MAGIC 8-BALL</Link>
         &nbsp;&nbsp;|&nbsp;&nbsp;
-        <Link to='/' onClick={props.handleLogout} >LOG OUT</Link>
+        <Link to='/' onClick={props.handleLogout} className="Link">LOG OUT</Link>
     </div>
     :
     <div>
-        <Link to ='/about'>ABOUT</Link>
+        <Link to ='/about'  className="Link">ABOUT</Link>
         &nbsp;&nbsp;|&nbsp;&nbsp;
-        <Link to ='/login'> LOG IN</Link>
+        <Link to ='/login' className="Link"> LOG IN</Link>
         &nbsp;&nbsp;|&nbsp;&nbsp;
-        <Link to='/signup' className='NavBar-link'>SIGN UP</Link>
+        <Link to='/signup' className='Link'>SIGN UP</Link>
     </div>
 
     return (
-        <div>
+        <div className="NavBar">
             {nav}
         </div>
     );
