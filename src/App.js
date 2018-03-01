@@ -13,6 +13,8 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import SearchPage from './pages/SearchPage/SearchPage';
 import ResultsPage from './pages/ResultsPage/ResultsPage';
 import EightBallPage from './pages/EightballPage/EightballPage';
+import HomePage from './pages/HomePage/HomePage';
+import AboutPage from './pages/AboutPage/AboutPage';
 import API from './api';
 
 
@@ -95,6 +97,16 @@ class App extends Component {
         <NavBar handleLogout={this.handleLogout} user={this.state.user} />
         <h1 className="Title">Food Mood</h1><br/>
         <Switch>
+          <Route exact path='/' render={(props) =>
+            <HomePage
+              {...props} 
+            />
+          } />
+
+          <Route exact path='/about' render={() =>
+            <AboutPage />
+          } />
+          
           <Route exact path='/signup' render={(props) =>
             <SignupPage
               {...props}

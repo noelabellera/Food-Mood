@@ -20,6 +20,8 @@ const WeatherDisplay = (props) => {
         icon = 'https://i.imgur.com/J4f2h42.png';
     }
 
+    let temp = Math.round(props.temp);
+
     return(
         <div className="WeatherDisplay">
             <div className="icon">
@@ -28,7 +30,7 @@ const WeatherDisplay = (props) => {
             
             <div className="info">
                 <h1>{props.city}</h1>
-                <h2>Current Temp: {props.temp} &#x2109;</h2>
+                <h2>Current Temp: {temp} &#x2109;</h2>
                 <h3 className="Description">{props.description}</h3>
             </div>
         </div>
