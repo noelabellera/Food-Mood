@@ -14,6 +14,10 @@ const WeatherDisplay = (props) => {
         icon = 'https://i.imgur.com/nqRok7n.png';
     } else if(props.description === 'broken clouds') {
         icon = 'https://i.imgur.com/y8loG4I.png';
+    } else if(props.description === 'light rain' || props.description === 'rain') {
+        icon = 'https://i.imgur.com/oHiFOKz.png';
+    } else {
+        icon = 'https://i.imgur.com/J4f2h42.png';
     }
 
     return(
@@ -23,9 +27,8 @@ const WeatherDisplay = (props) => {
             </div>
             
             <div className="info">
-                <h3>{props.city}</h3>
-                <h3>Current Temp</h3>
-                <h2>{props.temp} F</h2>
+                <h1>{props.city}</h1>
+                <h2>Current Temp: {props.temp} &#x2109;</h2>
                 <h3 className="Description">{props.description}</h3>
             </div>
         </div>
