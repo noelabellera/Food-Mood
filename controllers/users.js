@@ -1,6 +1,9 @@
 var User = require('../models/User');
 var jwt = require('jsonwebtoken');
 var SECRET = process.env.SECRET;
+const yelp = require('yelp-fusion');
+ 
+const client = yelp.client('AK0zf7qn2PotWnZo4MP_jx1Mm87NHA-jxbogGPg9EShOMXzRo6fJ19QJA0DBiJldCpWWk_pQoGBgB4R4rAb7ABhSRoYi0Qokewt4rwT0W_gIrjQvEcP8Jvb_0vCWWnYx');
 
 function signup(req, res) {
     var user = new User(req.body);
@@ -33,7 +36,21 @@ function createJWT(user) {
     );
 }
 
+function yelper() {
+    console.log("Hello Yelper")
+    client.search({
+        term:'Four Barrel Coffee',
+        location: 'san francisco, ca'
+      }).then(response => {
+          console.log('sdfjdsfk')
+        console.log(response.jsonBody.businesses[0].name);
+      }).catch(e => {
+        console.log(e);
+      });
+}
+
 module.exports = {
     signup,
-    login
+    login,
+    yelper
 }

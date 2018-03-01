@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   Switch,
   Route,
-  Redirect
+  Redirect, 
+  withRouter
 } from 'react-router-dom';
 import './App.css';
 import userService from './utils/userService';
@@ -20,7 +21,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      zip: ''
+      zip: '',
+      city: '',
     }
   }
 
@@ -29,7 +31,7 @@ class App extends Component {
 
   updateZipcode = (e) => {
     this.setState({
-      zip: e.target.value
+      zip: e.target.value,
     })
   }
   /*--- Callback Methods ---*/
@@ -53,13 +55,20 @@ class App extends Component {
     API.fetchWeather(this.state.zip)
       .then(response => response.json())
       .then(data => {
-        console.log(data)
-        this.setState({ 
-          temp: data.main.temp,
-          city: data.name,
-          description: data.weather[0].description
-         })
+        if (data.cod === "404") {
+          this.setState({ 
+            zip: '', 
+            city: ''
+          })
+        } else { 
+          this.setState({ 
+            temp: data.main.temp,
+            city: data.name,
+            description: data.weather[0].description,
+           })
+        }   
       })
+      .then(() => () => this.props.history.push("/results"))
       .catch((err) => {
         console.log(err)
       });
@@ -68,8 +77,10 @@ class App extends Component {
   /*--- Lifecycle Methods ---*/
 
   componentDidMount() {
+    console.log("MOUNT")
     let user = userService.getUser();
     this.setState({ user });
+    fetch('/').then(data => console.log(data))
   }
 
 
@@ -99,6 +110,7 @@ class App extends Component {
               <SearchPage
                 {...props}
                 zip={this.state.zip}
+                city={this.state.city}
                 handleSearchBTN={this.handleSearchBTN}
                 updateZipcode={this.updateZipcode}
               />
@@ -114,6 +126,7 @@ class App extends Component {
                 city={this.state.city}
                 zip={this.state.zip}
                 description={this.state.description}
+                message={this.state.message}
               />
               :
               <Redirect to='/' />
@@ -134,4 +147,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

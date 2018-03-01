@@ -15,7 +15,8 @@
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
-    "serve-favicon": "^2.4.5"
+    "serve-favicon": "^2.4.5",
+    "yelp-fusion": "^2.0.3"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -5,7 +5,8 @@ import './ResultsPage.css';
 
 const ResultsPage = (props) => {
 
-    let results = props.temp === undefined ?
+    console.log(props)
+    let results = props.city === "" ?
         <div>
             <h1>You've entered an invalid Zip Code</h1>
         </div>
