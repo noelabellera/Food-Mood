@@ -29,11 +29,12 @@ class EightBallPage extends Component {
     render() {
         return (
             <div>
-                <h2>Ask The Magic 8 Ball if You should eat there!</h2>
+                <h2>Ask The Magic 8 Ball if You should eat there!</h2><br/>
                 <EightBall updateState={this.updateState} answer={this.state.answer}/>
-                <Link to='/results'>Back to Results</Link>
+                <br/>
+                <h4><Link to='/results'>Back to Results</Link>
                 &nbsp;|&nbsp;
-                <Link to='/search'>Back to Search</Link>
+                <Link to='/search'>Back to Search</Link></h4>
             </div>    
         )
     }

@@ -1,6 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
-
+import './SearchForm.css';
 
 const SearchForm = (props) => {
     return (
@@ -10,7 +9,7 @@ const SearchForm = (props) => {
                        placeholder="Zip Code" 
                        onChange={props.updateZipcode}
                        value={props.zip} />
-                <button onClick={props.handleSearch}>SEARCH</button>
+                <button onClick={props.handleSearch} className="btn btn-default">SEARCH</button>
             </form>
         </div>
     )

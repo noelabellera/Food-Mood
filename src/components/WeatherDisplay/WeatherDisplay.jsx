@@ -8,7 +8,7 @@ const WeatherDisplay = (props) => {
         icon = 'https://i.imgur.com/0nbu8gL.png';
     } else if(props.description === 'moderate rain') {
         icon = 'https://i.imgur.com/ydHZy6R.png';
-    } else if(props.description === 'few clouds') {
+    } else if(props.description === 'few clouds' || props.description === 'scattered clouds') {
         icon = 'https://i.imgur.com/9filZG8.png';
     } else if(props.description === 'overcast clouds') {
         icon = 'https://i.imgur.com/nqRok7n.png';

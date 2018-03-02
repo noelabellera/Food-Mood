@@ -15,7 +15,7 @@ import ResultsPage from './pages/ResultsPage/ResultsPage';
 import EightBallPage from './pages/EightballPage/EightballPage';
 import HomePage from './pages/HomePage/HomePage';
 import AboutPage from './pages/AboutPage/AboutPage';
-import API from './api';
+import API from './api/index';
 
 
 
@@ -74,6 +74,8 @@ class App extends Component {
       .catch((err) => {
         console.log(err)
       });
+
+  
       
 
       
@@ -85,7 +87,10 @@ class App extends Component {
   componentDidMount() {
     let user = userService.getUser();
     this.setState({ user });
-    fetch('/').then(data => console.log(data))
+    fetch('/yelp')
+      .then(data => console.log(data))
+    
+    
     
   }
 
@@ -106,7 +111,7 @@ class App extends Component {
           <Route exact path='/about' render={() =>
             <AboutPage />
           } />
-          
+
           <Route exact path='/signup' render={(props) =>
             <SignupPage
               {...props}

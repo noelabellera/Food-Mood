@@ -6,6 +6,14 @@ const API = {
                 method: 'get'
             })
         )
+    },
+    fetchYelp: function(location) {
+        let URI = `http://localhost:3002/api/users/yelp?location=${location}&term=resturant`
+        return (
+            fetch(URI, {
+                method: 'get'
+            })
+        )
     }
 };
 

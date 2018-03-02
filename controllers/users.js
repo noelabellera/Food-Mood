@@ -35,9 +35,13 @@ function createJWT(user) {
     );
 }
 
+function test() {
+    console.log('test_______________________________________________test')
+}
 
 
 module.exports = {
     signup,
-    login
+    login,
+    test
 }

@@ -7,8 +7,17 @@ var yelpCtrl = require('../../controllers/yelpAPI')
 
 /*------ Public Routes -----*/
 
-router.get('/', yelpCtrl.yelpAPI);
+router.get('/yelp', yelpCtrl.yelp2);
+// router.get('/results', checkAuth, yelpCtrl.yelp2);
 router.post('/signup', usersCtrl.signup);
 router.post('/login', usersCtrl.login);
+
+
+
+
+function checkAuth(req, res, next) {
+    if (req.user) return next();
+    return res.status(401).json({msg: 'not authenticated'});
+  }
 
 module.exports = router;
