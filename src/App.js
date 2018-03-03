@@ -25,11 +25,23 @@ class App extends Component {
     this.state = {
       zip: '',
       city: '',
+      temp: '',
+      term1: 'soup',
+      term2: 'ramen',
+      term3: 'udon',
+      restaurants: []
     }
   }
 
 
   /*--- Helper Methods ---*/
+
+  resetSearch = () => {
+    this.setState({
+      zip: '',
+      city: ''
+    })
+  }
 
   updateZipcode = (e) => {
     this.setState({
@@ -81,12 +93,12 @@ class App extends Component {
         console.log(err)
     });
 
-    API.fetchYelp(this.state.city || this.state.zip)
+    API.fetchYelp((this.state.city || this.state.zip), this.state.term1, this.state.term2, this.state.term3)
       .then(response => response.json())
-      .then(data => {
-        console.log(data)
+      .then(d => {
+        console.log(d)
         this.setState({
-          restaurants: data
+          restaurants: d
         })
       })
       .catch((err) => {
@@ -114,7 +126,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar handleLogout={this.handleLogout} user={this.state.user} />
+        <NavBar handleLogout={this.handleLogout} user={this.state.user} resetSearch={this.resetSearch}/>
         <h1 className="Title">Food Mood</h1><br/>
         <Switch>
           <Route exact path='/' render={(props) =>
@@ -164,7 +176,8 @@ class App extends Component {
                 zip={this.state.zip}
                 description={this.state.description}
                 message={this.state.message}
-                restaurant={this.state.restaurant}
+                restaurants={this.state.restaurants}
+                resetSearch={this.resetSearch}
               />
               :
               <Redirect to='/' />

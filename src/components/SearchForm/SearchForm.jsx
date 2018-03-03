@@ -12,7 +12,7 @@ const SearchForm = (props) => {
                 <input type="number" 
                        placeholder="Zip Code" 
                        onChange={props.updateZipcode}
-                       value={props.zip} /><br/>
+                       value={props.zip} /><br/><br/>
                 <button onClick={props.handleSearch} className="btn btn-default">SEARCH</button>
             </form>
         </div>

@@ -9,8 +9,8 @@ const ResultsPage = (props) => {
     console.log(props)
     let results = props.city === "" ?
         <div>
-            <h1>You've entered an invalid Zip Code</h1><br/>
-            <Link to='/search'>Return to Search Page</Link>
+            <h1>You've entered an invalid City/Zip Code</h1><br/>
+            <h4><Link to='/search' onClick={props.resetSearch}>Return to Search Page</Link></h4>
         </div>
     
         :
@@ -20,8 +20,9 @@ const ResultsPage = (props) => {
                             city={props.city} 
                             description={props.description}
             />
+            <h4><Link to='/search' onClick={props.resetSearch}>New Search</Link></h4>
             <RestaurantDisplay temp={props.temp}
-                               restaurantName={props.restaurantName}
+                               restaurants={props.restaurants}
             />
         </div>
 

@@ -10,7 +10,7 @@ const NavBar = (props) => {
         &nbsp;&nbsp;|&nbsp;&nbsp;
         <Link to ='/about' className="Link">ABOUT</Link>
         &nbsp;&nbsp;|&nbsp;&nbsp;
-        <Link to ='/search' className="Link">SEARCH</Link>
+        <Link to ='/search' onClick={props.resetSearch} className="Link">SEARCH</Link>
         &nbsp;&nbsp;|&nbsp;&nbsp;
         <Link to ='/eightball' className="Link"> ASK THE MAGIC 8-BALL</Link>
         &nbsp;&nbsp;|&nbsp;&nbsp;

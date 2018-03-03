@@ -7,9 +7,8 @@ const API = {
             })
         )
     },
-    fetchYelp: function(location, terms) {
-        let URI2 = `/api/users/yelp?location=${location}&term=resturant`
-        // let URI2 =`/api/place/textsearch/json?query=restaurants+in+${location}&key=AIzaSyCshfybnG2O3F8fIjcF5kMiBizD_wPWpR4`
+    fetchYelp: function(location, term1, term2, term3) {
+        let URI2 = `/api/users/yelp?location=${location}&limit=40&term=resturant,+${term1},+${term2},+${term3}`
         return (
             fetch(URI2, {
                 method: 'get'
