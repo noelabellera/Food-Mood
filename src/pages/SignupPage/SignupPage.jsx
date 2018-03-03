@@ -23,6 +23,7 @@ class SignupPage extends Component {
                     {...this.props}
                     updateMessage={this.updateMessage}
                     handleSignup={this.props.handleSignup}
+                    resetSearch={this.resetSearch}
                 />
             </div>
         );
