@@ -9,7 +9,7 @@ const API = {
     },
     fetchYelp: function(location, terms) {
         let x = terms.join('+, ')
-        let URI2 = `/api/users/yelp?location=${location}&limit=40&term=resturant,+${x}`
+        let URI2 = `/api/users/yelp?location=${location}&limit=50&term=resturant,+${x}`
         return (
             fetch(URI2, {
                 method: 'get'
