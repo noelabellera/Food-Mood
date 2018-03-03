@@ -6,11 +6,11 @@ import './RestaurantDisplay.css';
 const RestaurantDisplay = (props) => {
     let msg = '';
     if (props.temp <= 65) {
-        msg = "SUGGESTED FOODS FOR A COLD DAY LIKE THIS: SOUPS, SOUL FOOD, COMFORT FOOD"
+        msg = "SUGGESTED FOODS FOR A COLD DAY LIKE THIS: \n SOUPS, SOUL FOOD, COMFORT FOOD"
     } else if (props.temp > 65 && props.temp < 80) {
-        msg = "SUGGESTED FOODS FOR A NICE DAY LIKE THIS: SANDWICHES, BURGERS, PASTA, BBQ"
+        msg = "SUGGESTED FOODS FOR A NICE DAY LIKE THIS: \n SANDWICHES, BURGERS, PASTA, BBQ"
     } else if (props.temp >= 80) {
-        msg = "SUGGESTED FOODS FOR A HOT DAY LIKE THIS: SALADS, SUSHI, ICE CREAM, SMOOTHIES"
+        msg = "SUGGESTED FOODS FOR A HOT DAY LIKE THIS: \n SALADS, SUSHI, ICE CREAM, SMOOTHIES"
     }
 
 

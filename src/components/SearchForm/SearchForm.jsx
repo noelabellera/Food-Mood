@@ -13,7 +13,7 @@ const SearchForm = (props) => {
                        placeholder="Zip Code" 
                        onChange={props.updateZipcode}
                        value={props.zip} /><br/><br/>
-                <button onClick={props.handleSearch} className="btn btn-default">SEARCH</button>
+                <button onClick={props.handleSearch}  className="btn btn-default">SEARCH</button>
             </form>
         </div>
     )

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   Switch,
   Route,
-  Redirect, 
+  Redirect,
   withRouter
 } from 'react-router-dom';
 import './App.css';
@@ -26,10 +26,14 @@ class App extends Component {
       zip: '',
       city: '',
       temp: '',
-      term1: 'soup',
-      term2: 'ramen',
-      term3: 'udon',
-      restaurants: []
+      // term1: '',
+      // term2: '',
+      // term3: '',
+      // term4: '',
+      // term5: '',
+      // term6: '',
+      restaurants: [],
+      terms: []
     }
   }
 
@@ -54,6 +58,8 @@ class App extends Component {
       city: e.target.value,
     })
   }
+
+
   /*--- Callback Methods ---*/
 
 
@@ -71,29 +77,50 @@ class App extends Component {
   }
 
   handleSearchBTN = (e) => {
+
+
     e.preventDefault();
     API.fetchWeather(this.state.zip, this.state.city)
       .then(response => response.json())
       .then(data => {
         if (data.cod === "404") {
-          this.setState({ 
-            zip: '', 
+          this.setState({
+            zip: '',
             city: ''
           })
-        } else { 
+        } else {
           this.setState({
             temp: data.main.temp,
             city: data.name,
             description: data.weather[0].description,
-           })
-        }   
-    })
+          }, () => {
+            this.determineTerms()
+          })
+        }
+      })
       .then(() => () => this.props.history.push("/results"))
       .catch((err) => {
         console.log(err)
-    });
+      });
+  }
 
-    API.fetchYelp((this.state.city || this.state.zip), this.state.term1, this.state.term2, this.state.term3)
+  determineTerms = () => {
+    // TODO: add logic for setting state on terms for suggestions according to weather
+    const terms = [];
+    console.log(this.state.temp)
+    if (this.state.temp >= 80) {
+      terms.push('sushi', 'salad', 'seafood')
+    } else if (this.state.temp >= 65) {
+      terms.push('burgers', 'hot dogs', 'sandwiches')
+    } else {
+      terms.push('ramen', 'udon', 'thai food')
+    }
+    this.setState({ terms }, () => {
+      this.callYelp()
+    })
+  }
+  callYelp = () => {
+    API.fetchYelp((this.state.city || this.state.zip), this.state.terms)
       .then(response => response.json())
       .then(d => {
         console.log(d)
@@ -104,15 +131,8 @@ class App extends Component {
       .catch((err) => {
         console.log(err)
       });
-
-
-
-  
-      
-
-      
-
   }
+
 
   /*--- Lifecycle Methods ---*/
 
@@ -126,12 +146,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar handleLogout={this.handleLogout} user={this.state.user} resetSearch={this.resetSearch}/>
-        <h1 className="Title">Food Mood</h1><br/>
+        <NavBar handleLogout={this.handleLogout} user={this.state.user} resetSearch={this.resetSearch} />
+        <h1 className="Title">Food Mood</h1><br />
         <Switch>
           <Route exact path='/' render={(props) =>
             <HomePage
-              {...props} 
+              {...props}
             />
           } />
 
@@ -162,6 +182,7 @@ class App extends Component {
                 handleSearchBTN={this.handleSearchBTN}
                 updateZipcode={this.updateZipcode}
                 updateCity={this.updateCity}
+                updateTerms={this.updateTerms}
               />
               :
               <Redirect to='/' />
