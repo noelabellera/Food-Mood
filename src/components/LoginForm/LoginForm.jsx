@@ -46,7 +46,7 @@ class LoginForm extends Component {
                     </div>
                     <div className="form-group">
                         <div className="col-sm-12 text-center">
-                            <button className="btn btn-default">Log In</button>&nbsp;&nbsp;&nbsp;
+                            <button onClick={this.props.resetSearch} className="btn btn-default">Log In</button>&nbsp;&nbsp;&nbsp;
                             <Link to='/'>Cancel</Link>
                         </div>
                     </div>

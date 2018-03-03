@@ -163,6 +163,7 @@ class App extends Component {
             <SignupPage
               {...props}
               handleSignup={this.handleSignup}
+              resetSearch={this.resetSearch}
             />
           } />
 
@@ -170,6 +171,7 @@ class App extends Component {
             <LoginPage
               {...props}
               handleLogin={this.handleLogin}
+              resetSearch={this.resetSearch}
             />
           } />
 

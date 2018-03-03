@@ -8,6 +8,7 @@ const LoginPage = (props) => {
             <LoginForm 
                 history={props.history}
                 handleLogin={props.handleLogin}
+                resetSearch={props.resetSearch}
             />
         </div>
     )
