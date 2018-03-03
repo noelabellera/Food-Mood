@@ -12,6 +12,7 @@ function yelp2(req, res) {
     term: req.query.term,
     location: req.query.location
   }).then(response => {
+    console.log(response.jsonBody.businesses);
     res.send(response.jsonBody.businesses);
   }).catch(e => {
     console.log(e);

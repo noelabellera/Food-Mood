@@ -36,6 +36,12 @@ class App extends Component {
       zip: e.target.value,
     })
   }
+
+  updateCity = (e) => {
+    this.setState({
+      city: e.target.value,
+    })
+  }
   /*--- Callback Methods ---*/
 
 
@@ -54,7 +60,7 @@ class App extends Component {
 
   handleSearchBTN = (e) => {
     e.preventDefault();
-    API.fetchWeather(this.state.zip)
+    API.fetchWeather(this.state.zip, this.state.city)
       .then(response => response.json())
       .then(data => {
         if (data.cod === "404") {
@@ -69,11 +75,25 @@ class App extends Component {
             description: data.weather[0].description,
            })
         }   
-      })
+    })
       .then(() => () => this.props.history.push("/results"))
       .catch((err) => {
         console.log(err)
+    });
+
+    API.fetchYelp(this.state.city || this.state.zip)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        this.setState({
+          restaurants: data
+        })
+      })
+      .catch((err) => {
+        console.log(err)
       });
+
+
 
   
       
@@ -87,11 +107,6 @@ class App extends Component {
   componentDidMount() {
     let user = userService.getUser();
     this.setState({ user });
-    fetch('/yelp')
-      .then(data => console.log(data))
-    
-    
-    
   }
 
 
@@ -134,6 +149,7 @@ class App extends Component {
                 city={this.state.city}
                 handleSearchBTN={this.handleSearchBTN}
                 updateZipcode={this.updateZipcode}
+                updateCity={this.updateCity}
               />
               :
               <Redirect to='/' />
@@ -148,6 +164,7 @@ class App extends Component {
                 zip={this.state.zip}
                 description={this.state.description}
                 message={this.state.message}
+                restaurant={this.state.restaurant}
               />
               :
               <Redirect to='/' />

@@ -16,8 +16,10 @@ class SearchPage extends Component {
                 <h3>ENTER ZIP TO SEE WHERE YOU SHOULD EAT!</h3>
                 <SearchForm 
                     handleSearch={this._handleSearchBTN}
-                    updateZipcode={this.props.updateZipcode} 
+                    updateZipcode={this.props.updateZipcode}
+                    updateCity={this.props.updateCity} 
                     zip={this.props.zip}
+                    city={this.props.city}
                 />
             </div>
         )

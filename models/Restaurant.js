@@ -2,8 +2,7 @@ var mongoose = require('mongoose');
 
 var restaurantSchema = new mongoose.Schema({
     name: String,
-    zipcode: Number,
-    catagory: String
+    address: String
 })
 
 

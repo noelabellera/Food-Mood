@@ -16,6 +16,7 @@ const RestaurantDisplay = (props) => {
     return (
         <div>
             <h3>{msg}</h3>
+            <p>{props.restaurantName}</p>
         </div>
     );
 };

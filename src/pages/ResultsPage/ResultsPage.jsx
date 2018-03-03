@@ -20,7 +20,9 @@ const ResultsPage = (props) => {
                             city={props.city} 
                             description={props.description}
             />
-            <RestaurantDisplay temp={props.temp}/>
+            <RestaurantDisplay temp={props.temp}
+                               restaurantName={props.restaurantName}
+            />
         </div>
 
     

@@ -6,7 +6,7 @@ const WeatherDisplay = (props) => {
     let icon = '';
     if(props.description === 'clear sky') {
         icon = 'https://i.imgur.com/0nbu8gL.png';
-    } else if(props.description === 'moderate rain') {
+    } else if(props.description === 'moderate rain' ) {
         icon = 'https://i.imgur.com/ydHZy6R.png';
     } else if(props.description === 'few clouds' || props.description === 'scattered clouds') {
         icon = 'https://i.imgur.com/9filZG8.png';
@@ -14,7 +14,7 @@ const WeatherDisplay = (props) => {
         icon = 'https://i.imgur.com/nqRok7n.png';
     } else if(props.description === 'broken clouds') {
         icon = 'https://i.imgur.com/y8loG4I.png';
-    } else if(props.description === 'light rain' || props.description === 'rain') {
+    } else if(props.description === 'light rain' || props.description === 'rain' || props.description === 'mist') {
         icon = 'https://i.imgur.com/oHiFOKz.png';
     } else {
         icon = 'https://i.imgur.com/J4f2h42.png';

@@ -14,6 +14,8 @@ const NavBar = (props) => {
         &nbsp;&nbsp;|&nbsp;&nbsp;
         <Link to ='/eightball' className="Link"> ASK THE MAGIC 8-BALL</Link>
         &nbsp;&nbsp;|&nbsp;&nbsp;
+        <Link to = '/favorites' className="Link">FAVORITES</Link>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
         <Link to='/' onClick={props.handleLogout} className="Link">LOG OUT</Link>
     </div>
     :

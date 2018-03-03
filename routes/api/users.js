@@ -8,7 +8,6 @@ var yelpCtrl = require('../../controllers/yelpAPI')
 /*------ Public Routes -----*/
 
 router.get('/yelp', yelpCtrl.yelp2);
-// router.get('/results', checkAuth, yelpCtrl.yelp2);
 router.post('/signup', usersCtrl.signup);
 router.post('/login', usersCtrl.login);
 
