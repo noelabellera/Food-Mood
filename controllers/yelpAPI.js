@@ -13,7 +13,7 @@ function yelp2(req, res) {
     location: req.query.location,
     limit: req.query.limit
   }).then(response => {
-    console.log(response.jsonBody.businesses);
+    // console.log(response.jsonBody.businesses);
     res.send(response.jsonBody.businesses);
   }).catch(e => {
     console.log(e);

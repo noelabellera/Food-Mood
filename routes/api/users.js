@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var User = require('../../models/User');
 var usersCtrl = require('../../controllers/users');
+var favoritesCtrl = require('../../controllers/favorites');
 var yelpCtrl = require('../../controllers/yelpAPI')
 
 
@@ -10,7 +11,7 @@ var yelpCtrl = require('../../controllers/yelpAPI')
 router.get('/yelp', yelpCtrl.yelp2);
 router.post('/signup', usersCtrl.signup);
 router.post('/login', usersCtrl.login);
-router.post('/favorites', usersCtrl.addFavorite);
+router.post('/favorites', favoritesCtrl.saveFavorite);
 
 
 

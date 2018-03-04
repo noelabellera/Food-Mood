@@ -1,9 +1,10 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
+var Schema = mongoose.Schema;
 
 const SALT_ROUNDS = 6;
 
-var userSchema = new mongoose.Schema({
+var userSchema = new Schema({
     name: String,
     email: {
         type: String,
@@ -12,13 +13,7 @@ var userSchema = new mongoose.Schema({
         unique: true
     },
     password: String,
-    favorites: [{
-        name: String,
-        address: String,
-        phoneNum: String,
-        rating: Number,
-        image: String
-    }]
+    favorites: [{type: String, ref: 'Favorites'}]
 }, {
     timestamps: true
 });

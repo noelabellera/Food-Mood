@@ -25,8 +25,21 @@ function signup(user) {
     })
     .then(({token}) => token);
   }
+
+  function saveFavorite(favorite) {
+    return fetch(BASE_URL + 'favorites', {
+      method: 'POST',
+      headers: new Headers({'Content-Type': 'application/json'}),
+      body: JSON.stringify(favorite),
+      credentials: 'include'
+    }) 
+    .then(res => {
+      if (res.ok) return res.json();
+    })
+  }
   
   export default {
     signup,
-    login
+    login,
+    saveFavorite
   };

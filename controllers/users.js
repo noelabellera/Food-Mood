@@ -13,7 +13,7 @@ function signup(req, res) {
 }
 
 function login(req, res) {
-    console.log("logging in")
+    console.log(req.body)
     User.findOne({email: req.body.email}).exec().then(user => {
         if(!user) return res.status(401).json({err: 'bad credentials'});
         user.comparePassword(req.body.pw, (err, isMatch) => {
@@ -35,13 +35,10 @@ function createJWT(user) {
     );
 }
 
-function addFavorite() {
-    console.log('This is a favorite')
-}
+
 
 
 module.exports = {
     signup,
-    login,
-    addFavorite
+    login
 }

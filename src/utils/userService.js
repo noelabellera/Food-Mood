@@ -19,9 +19,14 @@ function login(creds) {
     .then(token => tokenService.setToken(token));
 }
 
+function saveFavorite(favorite) {
+  return userAPI.saveFavorite(favorite)
+}
+
 export default {
   signup,
   getUser,
   logout,
-  login
+  login, 
+  saveFavorite
 }

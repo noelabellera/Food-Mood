@@ -19,7 +19,6 @@ import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 import API from './api/index';
 
 
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -27,17 +26,10 @@ class App extends Component {
       zip: '',
       city: '',
       temp: '',
-      // term1: '',
-      // term2: '',
-      // term3: '',
-      // term4: '',
-      // term5: '',
-      // term6: '',
       restaurants: [],
       terms: []
     }
   }
-
 
   /*--- Helper Methods ---*/
 
@@ -103,8 +95,13 @@ class App extends Component {
       });
   }
 
-  handleFavoritesBtn = () => {
+  // todo finish this feature (add favorites)
+  handleFavoritesBtn = (n) => {
     console.log("this is the fav button");
+    const obj = {
+      name: this.state.restaurants[n].name
+    }
+    userService.saveFavorite(obj)
   }
 
   determineTerms = () => {
@@ -226,9 +223,7 @@ class App extends Component {
               :
               <Redirect to='/' />
           )} />
-          
         </Switch>
-
       </div>
     );
   }
