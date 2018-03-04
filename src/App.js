@@ -15,6 +15,7 @@ import ResultsPage from './pages/ResultsPage/ResultsPage';
 import EightBallPage from './pages/EightballPage/EightballPage';
 import HomePage from './pages/HomePage/HomePage';
 import AboutPage from './pages/AboutPage/AboutPage';
+import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 import API from './api/index';
 
 
@@ -216,6 +217,16 @@ class App extends Component {
               :
               <Redirect to='/' />
           )} />
+
+          <Route exact path='/favorites' render={(props) => (
+            userService.getUser() ? 
+              <FavoritesPage  
+                {...props}
+              />
+              :
+              <Redirect to='/' />
+          )} />
+          
         </Switch>
 
       </div>
