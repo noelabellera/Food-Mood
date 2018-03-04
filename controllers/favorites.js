@@ -1,5 +1,5 @@
 var User = require('../models/User');
-var Favorite = require('../models/favorite');
+var Favorite = require('../models/Favorite');
 
 
 function saveFavorite(req, res) {
