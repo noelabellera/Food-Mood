@@ -77,8 +77,6 @@ class App extends Component {
   }
 
   handleSearchBTN = (e) => {
-
-
     e.preventDefault();
     API.fetchWeather(this.state.zip, this.state.city)
       .then(response => response.json())
@@ -104,6 +102,10 @@ class App extends Component {
       });
   }
 
+  handleFavoritesBtn = () => {
+    console.log("this is the fav button");
+  }
+
   determineTerms = () => {
     // TODO: add logic for setting state on terms for suggestions according to weather
     const terms = [];
@@ -113,12 +115,13 @@ class App extends Component {
     } else if (this.state.temp >= 65) {
       terms.push('burgers', 'hot dogs', 'sandwiches')
     } else {
-      terms.push('ramen', 'udon', 'thai food')
+      terms.push('Soup', 'ramen', 'udon')
     }
     this.setState({ terms }, () => {
       this.callYelp()
     })
   }
+
   callYelp = () => {
     API.fetchYelp((this.state.city || this.state.zip), this.state.terms)
       .then(response => response.json())
@@ -133,14 +136,12 @@ class App extends Component {
       });
   }
 
-
   /*--- Lifecycle Methods ---*/
 
   componentDidMount() {
     let user = userService.getUser();
     this.setState({ user });
   }
-
 
 
   render() {
@@ -201,6 +202,7 @@ class App extends Component {
                 message={this.state.message}
                 restaurants={this.state.restaurants}
                 resetSearch={this.resetSearch}
+                handleFavoritesBtn={this.handleFavoritesBtn}
               />
               :
               <Redirect to='/' />

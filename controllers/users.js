@@ -35,13 +35,13 @@ function createJWT(user) {
     );
 }
 
-function test() {
-    console.log('test_______________________________________________test')
+function addFavorite() {
+    console.log('This is a favorite')
 }
 
 
 module.exports = {
     signup,
     login,
-    test
+    addFavorite
 }

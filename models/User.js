@@ -11,7 +11,14 @@ var userSchema = new mongoose.Schema({
         lowercase: true,
         unique: true
     },
-    password: String
+    password: String,
+    favorites: [{
+        name: String,
+        address: String,
+        phoneNum: String,
+        rating: Number,
+        image: String
+    }]
 }, {
     timestamps: true
 });

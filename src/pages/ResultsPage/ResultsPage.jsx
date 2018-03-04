@@ -23,6 +23,7 @@ const ResultsPage = (props) => {
             <h4><Link to='/search' onClick={props.resetSearch}>New Search</Link></h4>
             <RestaurantDisplay temp={props.temp}
                                restaurants={props.restaurants}
+                               handleFavoritesBtn={props.handleFavoritesBtn}
             />
         </div>
 

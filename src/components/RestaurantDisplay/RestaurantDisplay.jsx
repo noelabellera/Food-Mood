@@ -28,11 +28,11 @@ const RestaurantDisplay = (props) => {
                         </div>
                         <div className="restaurantInfo">
                             <h2>{restaurant.name}</h2>
-                            <h5>Rating: {restaurant.rating}</h5>
+                            <h5><strong>Rating: {restaurant.rating}</strong></h5>
                             <h4>{restaurant.location.address1}</h4>
                             <h4>{restaurant.location.city}, {restaurant.location.zip_code}</h4>
                             <h4>{restaurant.display_phone}</h4>
-                            <button className="favBtn">Add To Favorites</button>
+                            <button className="favBtn" onClick={props.handleFavoritesBtn}>Add To Favorites</button>
                         </div>
                     </div>
                 ))}
