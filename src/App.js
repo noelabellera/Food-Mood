@@ -110,7 +110,6 @@ class App extends Component {
   determineTerms = () => {
     // TODO: add logic for setting state on terms for suggestions according to weather
     const terms = [];
-    console.log(this.state.temp)
     if (this.state.temp >= 80) {
       terms.push('sushi', 'salad', 'seafood')
     } else if (this.state.temp >= 65) {

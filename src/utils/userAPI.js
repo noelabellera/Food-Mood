@@ -1,5 +1,5 @@
 const BASE_URL = '/api/users/';
-const BASE_URL2 = '/api/favorites/';
+// const BASE_URL2 = '/api/favorites/';
 
 function signup(user) {
     return fetch(BASE_URL + 'signup', {
@@ -28,7 +28,7 @@ function signup(user) {
   }
 
   function saveFavorite(favorite) {
-    return fetch(BASE_URL2 + 'favorites', {
+    return fetch(BASE_URL + 'favorites', {
       method: 'POST',
       headers: new Headers({'Content-Type': 'application/json'}),
       body: JSON.stringify(favorite),
