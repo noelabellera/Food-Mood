@@ -6,8 +6,16 @@ function saveFavorite(req, res) {
     console.log("This is favorites controller");
     var favorite = new Favorite(req.body);
     favorite.save(function(err) {
-        // TODO finish function to save favorites
-
+        User.findById(req.user._id)
+        .then(user => {
+            user.favorites.push(favorite._id);
+            user.save()
+            .then(() => {
+                user.populate('favorites', () => {
+                    res.json(user.favorites);
+                });
+            })
+        })
     });
 }
 

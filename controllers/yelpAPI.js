@@ -7,7 +7,6 @@ const yelp = require('yelp-fusion');
 const client = yelp.client(YELP_KEY);
  
 function yelp2(req, res) {
-  console.log('yelp--------------------------------')
   client.search({
     term: req.query.term,
     location: req.query.location,

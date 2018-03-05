@@ -7,7 +7,7 @@ const FavoritesPage = (props) => {
     return(
         <div>
             <h1>These are your Favorites</h1>
-            <FavoritesDisplay />
+            <FavoritesDisplay favorite={props.favorite}/>
             <h4><Link to='/search'>Return to search</Link>&nbsp;|&nbsp;
             <Link to='/results'>Return to results</Link></h4>
         </div>

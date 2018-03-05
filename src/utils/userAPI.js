@@ -1,3 +1,4 @@
+import tokenService from './tokenService';
 const BASE_URL = '/api/users/';
 // const BASE_URL2 = '/api/favorites/';
 
@@ -30,13 +31,15 @@ function signup(user) {
   function saveFavorite(favorite) {
     return fetch(BASE_URL + 'favorites', {
       method: 'POST',
-      headers: new Headers({'Content-Type': 'application/json'}),
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Authorization': tokenService.getToken()
+      }),
       body: JSON.stringify(favorite),
-      credentials: 'include'
     }) 
     .then(res => {
       if (res.ok) return res.json();
-    })
+    }).catch(err => console.log(err))
   }
   
   export default {

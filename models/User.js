@@ -13,7 +13,7 @@ var userSchema = new Schema({
         unique: true
     },
     password: String,
-    favorites: [{type: Schema.Types.ObjectId, ref: 'Favorites'}]
+    favorites: [{type: Schema.Types.ObjectId, ref: 'Favorite'}]
 }, {
     timestamps: true
 });
@@ -25,7 +25,6 @@ userSchema.set('toJSON', {
     }
 });
 
-// add pre middleware
 userSchema.pre('save', function(next) {
     var user = this;
     if(!user.isModified('password')) return next();

@@ -6,11 +6,11 @@ import './RestaurantDisplay.css';
 const RestaurantDisplay = (props) => {
     let msg = '';
     if (props.temp <= 65) {
-        msg = "SUGGESTED FOODS FOR A COLD DAY LIKE THIS: \n SOUPS, SOUL FOOD, COMFORT FOOD"
+        msg = "SUGGESTED FOODS FOR A COLD DAY LIKE THIS: SOUPS, COMFORT FOOD"
     } else if (props.temp > 65 && props.temp < 80) {
-        msg = "SUGGESTED FOODS FOR A NICE DAY LIKE THIS: \n SANDWICHES, BURGERS, PASTA, BBQ"
+        msg = "SUGGESTED FOODS FOR A NICE DAY LIKE THIS: SANDWICHES, BURGERS, PASTA"
     } else if (props.temp >= 80) {
-        msg = "SUGGESTED FOODS FOR A HOT DAY LIKE THIS: \n SALADS, SUSHI, ICE CREAM, SMOOTHIES"
+        msg = "SUGGESTED FOODS FOR A HOT DAY LIKE THIS: SALADS, SUSHI, ICE CREAM, SMOOTHIES"
     }
 
 
@@ -28,12 +28,12 @@ const RestaurantDisplay = (props) => {
                         </div>
                         <div className="restaurantInfo">
                             <h2>{restaurant.name}</h2>
-                            <h5><strong>Rating: {restaurant.rating}</strong></h5>
+                            <h5 className="ratings">Rating: {restaurant.rating}</h5>
                             <h4>{restaurant.location.address1}</h4>
                             <h4>{restaurant.location.city}, {restaurant.location.zip_code}</h4>
                             <h4>{restaurant.display_phone}</h4>
                             <button className="favBtn" onClick={() => {
-                                console.log('!')
+                                console.log('Favorites Button!')
                                 props.handleFavoritesBtn(idx)
                             }}>Add To Favorites!</button>
                         </div>

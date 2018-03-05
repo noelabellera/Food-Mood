@@ -11,7 +11,9 @@ var yelpCtrl = require('../../controllers/yelpAPI')
 router.get('/yelp', yelpCtrl.yelp2);
 router.post('/signup', usersCtrl.signup);
 router.post('/login', usersCtrl.login);
-router.post('/favorites', favoritesCtrl.saveFavorite);
+
+
+router.post('/favorites', checkAuth, favoritesCtrl.saveFavorite);
 
 
 

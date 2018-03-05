@@ -4,10 +4,14 @@
 FOOD MOOD is a search app that searches restaurants around your local area. Sounds a lot like Yelp, right? Actually it is but with a little twist. FOOD MOOD actaully returns suggested restaurants to eat at according to the weather. In essence, you'll know instantly where the soups spots are when the weather is cold, and where you can grab a nice cool salad or sushi roll when the weather gets toasty. Happy searching from your local areas. 
 
 ## Technologies used:
+* Bootstrap
 * React JS
-* Mongoose
+* Mongoose/MongoDB
 * Express
 * Node JS
+* HTML
+* CSS
+* JavaScript
 * FlexBox
 * OpenWeatherMap API
 * Yelp Fusion API
@@ -15,7 +19,8 @@ FOOD MOOD is a search app that searches restaurants around your local area. Soun
 # Getting Started
 
 ## Here's a peek at the FOOD MOOD App!
-TODO: Add photos
+![Food Mood App Screen Shot](https://i.imgur.com/7JtUCDM.png)
+![Food Mood App Screen Shot](https://i.imgur.com/5kXtZwk.png)
 
 ## Click on the link to try it out
 [Click here for FOOD MOOD](https://hipfoodiemom.com/2017/10/28/chocolate-chip-sugar-cookies/)
@@ -24,12 +29,12 @@ TODO: Add photos
 [Click here to view the Trello Board](https://trello.com/b/COXrtKKD/food-mood)
 
 ## Unsolved Problems
-1. Narrowing down search by shortening the radius of the given zipcode
+1. Narrowing down search by shortening the radius of the given zip code
 2. Adding more keywords to the URL query to give more results (types of food) according to the weather
 3. Getting the time of the day from the weather API to change the weather icon from day to night.
 
 ## Next Steps
 * Add a message board for people to share their experiences 
 * Add more features to the app and transform it to more than just a food suggestion app (music, movies)
-* Suggest recipes to cook according to the weather rather than going out to eat.
+* Suggest recipes to cook according to the weather rather than restaurants.
 * Add a share button to share with friends the results incase they want to join in on the dinning experience

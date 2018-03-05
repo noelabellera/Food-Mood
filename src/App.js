@@ -27,7 +27,8 @@ class App extends Component {
       city: '',
       temp: '',
       restaurants: [],
-      terms: []
+      terms: [],
+      favorite: []
     }
   }
 
@@ -102,9 +103,11 @@ class App extends Component {
       address: this.state.restaurants[n].location.address1,
       city: this.state.restaurants[n].location.city,
       state: this.state.restaurants[n].location.state,
-      phone: this.state.restaurants[n].phone
+      phone: this.state.restaurants[n].display_phone,
+      img: this.state.restaurants[n].image_url
     }
     userService.saveFavorite(obj)
+    this.props.history.push('/favorites');
   }
 
   determineTerms = () => {
@@ -221,6 +224,7 @@ class App extends Component {
             userService.getUser() ? 
               <FavoritesPage  
                 {...props}
+                favorite={this.state.favorite}
               />
               :
               <Redirect to='/' />
