@@ -17,7 +17,9 @@ class SignupForm extends Component {
         this.props.updateMessage('');
         this.setState({
           // Using ES2015 Computed Property Names
-          [field]: e.target.value
+          [field]: e.target.value,
+          city: '',
+          zipCode: ''
         });
     }
     

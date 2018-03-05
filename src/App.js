@@ -106,17 +106,25 @@ class App extends Component {
       state: this.state.restaurants[n].location.state,
       phone: this.state.restaurants[n].display_phone,
       zip: this.state.restaurants[n].location.zip_code,
-      picture: this.state.restaurants[n].image_url,
+      url: this.state.restaurants[n].url,
       rating: this.state.restaurants[n].rating
     }
     userService.saveFavorite(obj)
     .then(updatedFavs => {
-      console.log(updatedFavs);
       this.setState({
         favorites: updatedFavs
       })
     });
     this.props.history.push('/favorites');
+  }
+
+  handleRemoveBtn = (favoriteId) => {
+    userService.removeFavorite(favoriteId)
+    .then(updateFavs => {
+      this.setState({
+        favorites: updateFavs
+      });
+    });
   }
 
   determineTerms = () => {
@@ -234,6 +242,7 @@ class App extends Component {
               <FavoritesPage  
                 {...props}
                 favorites={this.state.favorites}
+                handleRemoveBtn={this.handleRemoveBtn}
               />
               :
               <Redirect to='/' />

@@ -1,0 +1,11 @@
+.removeBtn {
+    background-color: tomato;
+    color: white;
+    height: 40px;
+    width: 125px;
+}
+
+.removeBtn:hover {
+    background-color: dodgerblue;
+    transition: .4s;
+}

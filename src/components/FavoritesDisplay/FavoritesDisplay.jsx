@@ -1,11 +1,12 @@
 import React from 'react';
+import './FavoritesDisplay.css';
 
 
 const FavoritesDisplay = (props) => {
     return (
         <div>
             <div>
-                <h3>Favorites List:</h3><br />
+                <h2>Favorites List:</h2><br />
             </div>
             <div>
                 {props.favorites.map((favorite, idx) => (
@@ -18,8 +19,11 @@ const FavoritesDisplay = (props) => {
                             <h2>{favorite.name}</h2>
                             <h5 className="ratings">Rating: {favorite.rating}</h5>
                             <h4>{favorite.address}</h4>
-                            <h4>{favorite.state}, {favorite.zip}</h4>
+                            <h4>{favorite.city}, {favorite.state} {favorite.zip}</h4>
                             <h4>{favorite.phone}</h4>
+                            <button className="removeBtn" onClick={() => {
+                                props.handleRemoveBtn(favorite._id)
+                            }} >Remove Favorite</button>
                         </div>
                     </div>
                 ))}

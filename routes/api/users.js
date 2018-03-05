@@ -14,6 +14,7 @@ router.post('/login', usersCtrl.login);
 
 
 router.post('/favorites', checkAuth, favoritesCtrl.saveFavorite);
+router.delete('/favorites/:id', checkAuth, favoritesCtrl.removeFavorite);
 
 
 

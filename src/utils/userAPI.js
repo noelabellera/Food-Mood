@@ -41,9 +41,24 @@ function signup(user) {
       if (res.ok) return res.json();
     }).catch(err => console.log(err))
   }
+
+  function removeFavorite(favoriteId) {
+    return fetch(BASE_URL + 'favorites/:id', {
+      method: 'DELETE',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Authorization': tokenService.getToken()
+      }),
+      body: JSON.stringify({favoriteId}),
+    })
+    .then(res => {
+      if (res.ok) return res.json();
+    }).catch(err => console.log(err))
+  }
   
   export default {
     signup,
     login,
-    saveFavorite
+    saveFavorite,
+    removeFavorite
   };

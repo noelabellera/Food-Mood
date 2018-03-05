@@ -4,7 +4,7 @@ import './EightBall.css';
 const EightBall = (props) => {
     return (
         <div className="EightBall">
-            <h2>{props.answer}</h2><br/>
+            <h2 className="answers">{props.answer}</h2><br/>
             <button className="eightButton" onClick={props.updateState}>Answer</button>
         </div>
     )
