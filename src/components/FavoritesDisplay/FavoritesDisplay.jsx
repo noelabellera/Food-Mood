@@ -12,7 +12,7 @@ const FavoritesDisplay = (props) => {
 
                     <div key={idx} className="restaurantCard">
                         <div>
-                            <a href={favorite.url}><img src={favorite.pic} className="restaurantPics" alt="location" /></a>
+                            <a href={favorite.url}><img src={favorite.image_url} className="restaurantPics" alt="location" /></a>
                         </div>
                         <div className="restaurantInfo">
                             <h2>{favorite.name}</h2>
