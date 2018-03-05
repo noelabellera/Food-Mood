@@ -5,8 +5,11 @@ var favoriteSchema = new Schema({
     name: String,
     address: String,
     phone: String,
-    image_url: String
-
+    image_url: String,
+    zip: String,
+    state: String,
+    url: String,
+    rating: Number
 }, {
     timestamps: true
 });

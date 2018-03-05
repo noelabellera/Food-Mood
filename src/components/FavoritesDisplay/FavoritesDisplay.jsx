@@ -1,10 +1,29 @@
 import React from 'react';
 
 
-const FavoritesDisplay = () => {
-    return(
+const FavoritesDisplay = (props) => {
+    return (
         <div>
-            <h3>TODO: Put Favorites here</h3>
+            <div>
+                <h3>Favorites List:</h3><br />
+            </div>
+            <div>
+                {props.favorites.map((favorite, idx) => (
+
+                    <div key={idx} className="restaurantCard">
+                        <div>
+                            <a href={favorite.url}><img src={favorite.pic} className="restaurantPics" alt="location" /></a>
+                        </div>
+                        <div className="restaurantInfo">
+                            <h2>{favorite.name}</h2>
+                            <h5 className="ratings">Rating: {favorite.rating}</h5>
+                            <h4>{favorite.address}</h4>
+                            <h4>{favorite.state}, {favorite.zip}</h4>
+                            <h4>{favorite.phone}</h4>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }
