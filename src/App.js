@@ -97,9 +97,12 @@ class App extends Component {
 
   // todo finish this feature (add favorites)
   handleFavoritesBtn = (n) => {
-    console.log("this is the fav button");
     const obj = {
-      name: this.state.restaurants[n].name
+      name: this.state.restaurants[n].name,
+      address: this.state.restaurants[n].location.address1,
+      city: this.state.restaurants[n].location.city,
+      state: this.state.restaurants[n].location.state,
+      phone: this.state.restaurants[n].phone
     }
     userService.saveFavorite(obj)
   }
@@ -113,7 +116,7 @@ class App extends Component {
     } else if (this.state.temp >= 65) {
       terms.push('burgers', 'hot dogs', 'sandwiches')
     } else {
-      terms.push('Soup', 'ramen', 'udon')
+      terms.push('Soup', 'ramen')
     }
     this.setState({ terms }, () => {
       this.callYelp()

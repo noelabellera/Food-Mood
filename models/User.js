@@ -13,7 +13,7 @@ var userSchema = new Schema({
         unique: true
     },
     password: String,
-    favorites: [{type: String, ref: 'Favorites'}]
+    favorites: [{type: Schema.Types.ObjectId, ref: 'Favorites'}]
 }, {
     timestamps: true
 });

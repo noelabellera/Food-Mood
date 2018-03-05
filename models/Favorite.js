@@ -2,7 +2,11 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var favoriteSchema = new Schema({
-    name: String
+    name: String,
+    address: String,
+    phone: String,
+    image_url: String
+
 }, {
     timestamps: true
 });
