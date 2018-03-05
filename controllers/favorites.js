@@ -20,7 +20,6 @@ function saveFavorite(req, res) {
 }
 
 function removeFavorite(req, res) {
-    console.log("removed favorite");
     Favorite.findByIdAndRemove(req.body.favoriteId);
     User.findById(req.user._id).populate('favorites').exec()
     .then(function(user) {

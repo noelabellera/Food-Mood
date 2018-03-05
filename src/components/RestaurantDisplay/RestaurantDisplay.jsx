@@ -33,7 +33,6 @@ const RestaurantDisplay = (props) => {
                             <h4>{restaurant.location.city}, {restaurant.location.zip_code}</h4>
                             <h4>{restaurant.display_phone}</h4>
                             <button className="favBtn" onClick={() => {
-                                console.log('Favorites Button!')
                                 props.handleFavoritesBtn(idx)
                             }}>Add To Favorites!</button>
                         </div>

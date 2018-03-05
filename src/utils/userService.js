@@ -26,6 +26,7 @@ function saveFavorite(favorite) {
 function removeFavorite(favoriteId) {
   return userAPI.removeFavorite(favoriteId)
 }
+
 export default {
   signup,
   getUser,

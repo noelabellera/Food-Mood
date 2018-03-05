@@ -53,10 +53,6 @@ class App extends Component {
     })
   }
 
-
-  /*--- Callback Methods ---*/
-
-
   handleSignup = () => {
     this.setState({ user: userService.getUser() });
   }
@@ -96,7 +92,6 @@ class App extends Component {
       });
   }
 
-  // todo finish this feature (add favorites)
   handleFavoritesBtn = (n) => {
     const obj = {
       name: this.state.restaurants[n].name,
@@ -128,7 +123,6 @@ class App extends Component {
   }
 
   determineTerms = () => {
-    // TODO: add logic for setting state on terms for suggestions according to weather
     const terms = [];
     if (this.state.temp >= 80) {
       terms.push('sushi', 'salad', 'seafood')
@@ -146,7 +140,6 @@ class App extends Component {
     API.fetchYelp((this.state.city || this.state.zip), this.state.terms)
       .then(response => response.json())
       .then(d => {
-        console.log(d)
         this.setState({
           restaurants: d
         })
@@ -156,7 +149,6 @@ class App extends Component {
       });
   }
 
-  /*--- Lifecycle Methods ---*/
 
   componentDidMount() {
     let user = userService.getUser();
