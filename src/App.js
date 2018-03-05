@@ -102,12 +102,12 @@ class App extends Component {
       name: this.state.restaurants[n].name,
       image_url: this.state.restaurants[n].image_url,
       address: this.state.restaurants[n].location.address1,
-      city: this.state.restaurants[n].location.city,
       state: this.state.restaurants[n].location.state,
       phone: this.state.restaurants[n].display_phone,
       zip: this.state.restaurants[n].location.zip_code,
       url: this.state.restaurants[n].url,
-      rating: this.state.restaurants[n].rating
+      rating: this.state.restaurants[n].rating,
+      city: this.state.restaurants[n].location.city
     }
     userService.saveFavorite(obj)
     .then(updatedFavs => {

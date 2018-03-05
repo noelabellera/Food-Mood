@@ -9,7 +9,8 @@ var favoriteSchema = new Schema({
     zip: String,
     state: String,
     url: String,
-    rating: Number
+    rating: Number,
+    city: String
 }, {
     timestamps: true
 });
