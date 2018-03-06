@@ -1,6 +1,5 @@
 import tokenService from './tokenService';
 const BASE_URL = '/api/users/';
-// const BASE_URL2 = '/api/favorites/';
 
 function signup(user) {
     return fetch(BASE_URL + 'signup', {

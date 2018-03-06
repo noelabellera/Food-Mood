@@ -129,7 +129,7 @@ class App extends Component {
     } else if (this.state.temp >= 65) {
       terms.push('burgers', 'hot dogs', 'sandwiches')
     } else {
-      terms.push('Soup', 'ramen')
+      terms.push('ramen', 'udon')
     }
     this.setState({ terms }, () => {
       this.callYelp()
@@ -140,6 +140,7 @@ class App extends Component {
     API.fetchYelp((this.state.city || this.state.zip), this.state.terms)
       .then(response => response.json())
       .then(d => {
+        console.log(d)
         this.setState({
           restaurants: d
         })
@@ -160,7 +161,8 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar handleLogout={this.handleLogout} user={this.state.user} resetSearch={this.resetSearch} />
-        <h1 className="Title">Food Mood</h1><br />
+        <h1 className="Title">Food Mood</h1>
+        <h3>Powered By  <img className="yelpFusion" src="https://i.imgur.com/EYzGpzZ.png" alt="yelp fusion"/></h3>
         <Switch>
           <Route exact path='/' render={(props) =>
             <HomePage
