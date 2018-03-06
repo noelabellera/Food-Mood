@@ -1,7 +1,7 @@
 # FOOD MOOD
 
 ## About FOOD MOOD
-FOOD MOOD is a search app that searches restaurants around your local area. Sounds a lot like Yelp, right? Actually it is but with a little twist. FOOD MOOD actaully returns suggested restaurants to eat at according to the weather. In essence, you'll know instantly where the soups spots are when the weather is cold, and where you can grab a nice cool salad or sushi roll when the weather gets toasty. Happy searching from your local areas. 
+FOOD MOOD is a search app that searches restaurants around your local area. Sounds a lot like Yelp, right? Actually it is but with a little twist. FOOD MOOD actually returns suggested restaurants to eat at according to the weather. In essence, you'll know instantly where the soups spots are when the weather is cold, and where you can grab a nice cool salad or sushi roll when the weather gets toasty. Happy searching in your local areas. 
 
 ## Technologies used:
 * Bootstrap
@@ -32,6 +32,7 @@ FOOD MOOD is a search app that searches restaurants around your local area. Soun
 1. Narrowing down search by shortening the radius of the given zip code
 2. Adding more keywords to the URL query to give more results (types of food) according to the weather
 3. Getting the time of the day from the weather API to change the weather icon from day to night.
+4. Show favorites 
 
 ## Next Steps
 * Add a message board for people to share their experiences 
