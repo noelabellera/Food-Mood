@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 const ResultsPage = (props) => {
 
-    console.log(props)
     let results = props.city === "" ?
         <div>
             <h1>You've entered an invalid City/Zip Code</h1><br/>

@@ -35,6 +35,7 @@ FOOD MOOD is a search app that searches restaurants around your local area. Soun
 4. Show favorites 
 
 ## Next Steps
+* Enhance styling
 * Add a message board for people to share their experiences 
 * Add more features to the app and transform it to more than just a food suggestion app (music, movies)
 * Suggest recipes to cook according to the weather rather than restaurants.
