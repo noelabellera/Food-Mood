@@ -71,6 +71,7 @@ class App extends Component {
     API.fetchWeather(this.state.zip, this.state.city)
       .then(response => response.json())
       .then(data => {
+        console.log(data)
         if (data.cod === "404") {
           this.setState({
             zip: '',

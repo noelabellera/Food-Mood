@@ -1,6 +1,6 @@
 const API = {
     fetchWeather: function(zipCode, city) {
-        let URI = `https://api.openweathermap.org/data/2.5/weather?q=${city}&zip=${zipCode},us&appid=7e7d28986f2e54b5f2ffc1a787b3f89e&units=imperial`
+        let URI = `https://api.openweathermap.org/data/2.5/weather?q=${city}&zip=${zipCode},us&appid=47dcfeade617a7a89bc2cf4b8ab9fb63&units=imperial`
         return (
             fetch(URI, {
                 method: 'get'
