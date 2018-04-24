@@ -23,7 +23,7 @@ FOOD MOOD is a search app that searches restaurants around your local area. Soun
 ![Food Mood App Screen Shot](https://i.imgur.com/5kXtZwk.png)
 
 ## Click on the link to try it out
-[Click here for FOOD MOOD](https://hipfoodiemom.com/2017/10/28/chocolate-chip-sugar-cookies/)
+[Click here for FOOD MOOD](http://food-mood-app.herokuapp.com/)
 
 ## Link to the Trello Board
 [Click here to view the Trello Board](https://trello.com/b/COXrtKKD/food-mood)
